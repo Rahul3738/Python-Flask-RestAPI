@@ -1,0 +1,17 @@
+# Use a lightweight base image
+FROM python:3.9-alpine
+
+# Set the working directory in the container
+WORKDIR /opt/app
+
+# Copy the local contents into the container
+COPY . .
+
+# Install production dependencies
+RUN pip install --no-cache-dir -r requirements-prod.txt
+
+# Expose the port on which the application will run
+EXPOSE 5000
+
+# Specify the command to run your application
+CMD ["python3", "-m", "flask", "run", "--host=0.0.0.0"]
