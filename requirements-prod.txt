@@ -1,1 +1,3 @@
--r requirements.txt
+flask
+python-dotenv
+#-r requirements.txt  
